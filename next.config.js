@@ -1,4 +1,13 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {}
+const withSerwist = require("@serwist/next").default({
+  swSrc: "app/sw.ts",
+  swDest: "public/sw.js",
+  cacheOnFrontEndNav: true,
+  reloadOnOnline: true,
+});
 
-module.exports = nextConfig
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  poweredByHeader: false,
+};
+
+module.exports = withSerwist(nextConfig);
