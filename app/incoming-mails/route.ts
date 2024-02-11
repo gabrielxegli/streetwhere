@@ -10,7 +10,7 @@ export async function POST(req: Request) {
   const authheader =
     req.headers.get("authorization") || req.headers.get("Authorization");
 
-  if (!authheader) {
+  if (!authheader || !authheader.startsWith("Basic ")) {
     return new Response("Authentication required", {
       status: 401,
       headers: { "WWW-Authenticate": "Basic" },
