@@ -113,7 +113,7 @@ export const metadata: Metadata = {
         { w: 640, h: 1136, x: 2 },
         { w: 640, h: 1136, x: 2 },
       ].map(({ w, h, x }) => ({
-        url: `/splash-screen?w=${w}&h=${h}`,
+        url: `/splash/splash-${w}x${h}.png`,
         media: `(device-width: ${w}px) and (device-height: ${h}px) and (-webkit-min-device-pixel-ratio: ${x})`,
       })),
     ],
