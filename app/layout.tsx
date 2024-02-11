@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "Fashion",
     "Notification Manager",
     "Notification Hub",
-    "Streetbrans",
+    "Streetbrands",
   ],
   referrer: "origin-when-cross-origin",
   authors: [{ name: "Gabriel Egli" }],
