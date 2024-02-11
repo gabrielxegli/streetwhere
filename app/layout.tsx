@@ -12,8 +12,19 @@ const APP_DESCRIPTION =
   "Streetwhere is a online streetbrand hub that helps you manage different drops and releases from a central place. With the help of notification you will never miss a drop on Streetwhere.";
 
 export const metadata: Metadata = {
+  generator: "Next.js",
   applicationName: APP_NAME,
-
+  keywords: [
+    "Streetwear",
+    "Fashion",
+    "Notification Manager",
+    "Notification Hub",
+    "Streetbrans",
+  ],
+  referrer: "origin-when-cross-origin",
+  authors: [{ name: "Gabriel Egli" }],
+  creator: "Gabriel Egli",
+  publisher: "Gabriel Egli",
   title: {
     default: APP_DEFAULT_TITLE,
     template: APP_TITLE_TEMPLATE,
@@ -22,6 +33,33 @@ export const metadata: Metadata = {
   description: APP_DESCRIPTION,
 
   manifest: "/manifest.json",
+
+  icons: [
+    {
+      rel: "icon",
+      url: "/icons/64",
+      type: "image/png",
+      sizes: "64x64",
+    },
+    {
+      rel: "icon",
+      url: "/icons/32",
+      type: "image/png",
+      sizes: "32x32",
+    },
+    {
+      rel: "icon",
+      url: "/icons/16",
+      type: "image/png",
+      sizes: "16x16",
+    },
+    {
+      rel: "apple-touch-icon",
+      url: "/icons/180",
+      type: "image/png",
+      sizes: "180x180",
+    },
+  ],
 
   appleWebApp: {
     capable: true,
