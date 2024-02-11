@@ -3,13 +3,15 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url);
+  const { searchParams, origin } = new URL(req.url);
 
   let w = +searchParams.get("w")!;
   let h = +searchParams.get("h")!;
 
-  const onest = fetch("http://localhost:3000/fonts/Onest-Bold.woff").then(
-    (res) => res.arrayBuffer()
+  console.log(origin);
+
+  const onest = fetch(origin + "/fonts/Onest-Bold.woff").then((res) =>
+    res.arrayBuffer()
   );
 
   return new ImageResponse(
