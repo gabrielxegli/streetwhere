@@ -87,7 +87,7 @@ export async function GET() {
 
       console.log(`Image saved successfully at: ${destination}`);
     } catch (error) {
-      console.error(`Error: ${error.message}`);
+      console.error(`Error: ${error}`);
     }
   });
 }
