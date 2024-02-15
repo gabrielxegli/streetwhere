@@ -1,8 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import Link from "next/link";
+import { Plus } from "lucide-react";
 
 const dmSans = DM_Sans({ subsets: ["latin"], preload: true });
+const onest = localFont({ src: "./Onest-Bold.woff" });
 
 const APP_NAME = "Streetwhere";
 const APP_DEFAULT_TITLE =
@@ -61,6 +65,8 @@ export const metadata: Metadata = {
     },
   ],
 
+  other: { "mobile-web-app-capable": "yes" },
+
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
@@ -113,7 +119,7 @@ export const metadata: Metadata = {
         { w: 640, h: 1136, x: 2 },
         { w: 640, h: 1136, x: 2 },
       ].map(({ w, h, x }) => ({
-        url: `splash/splash-${w}x${h}.png`,
+        url: `splash-screen?w=${w}&h=${h}`,
         media: `screen and (max-device-width: ${w}px) and (max-device-height: ${h}px) and (-webkit-device-pixel-ratio: ${x}) and (orientation: portait)`,
       })),
     ],
@@ -122,6 +128,8 @@ export const metadata: Metadata = {
   formatDetection: {
     telephone: false,
   },
+
+  metadataBase: new URL("https://streetwhere.online/"),
 
   openGraph: {
     type: "website",
@@ -154,17 +162,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="bg-[#111111]">
-      <body
-        className={
-          dmSans.className + " min-h-screen flex flex-col justify-between"
-        }
-      >
-        <header>header</header>
+    <html lang="en" className="bg-[#111111] p-3">
+      <body className={onest.className}>
+        <div className="min-h-screen flex flex-col justify-between gap-5">
+          <header className="flex justify-between max-w-screen-xl mx-auto w-full">
+            <h1 className="text-left text-xl">streetwhere?</h1>
 
-        <main className="flex-grow">{children}</main>
+            <nav>
+              <button className="bg-neutral-800 px-4 py-1.5 rounded-3xl hover:bg-neutral-600 flex gap-2">
+                <Plus className="w-4" />
+                Add site
+              </button>
+            </nav>
+          </header>
 
-        <footer>footer</footer>
+          <main className="flex-grow max-w-screen-xl mx-auto w-full">
+            {children}
+          </main>
+        </div>
+
+        <footer className="text-center text-xs text-neutral-500 text-opacity-50">
+          Copyright ©
+          <Link color="inherit" href="https://steetwhere.online">
+            https://streetwhere.online
+          </Link>{" "}
+          {new Date().getFullYear()}.
+        </footer>
       </body>
     </html>
   );
